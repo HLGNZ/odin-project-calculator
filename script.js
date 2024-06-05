@@ -19,9 +19,11 @@ numbers.forEach((number) =>
 )
 operators.forEach((op) =>
   op.addEventListener("click", (e) => {
-    getOperator(e.target.textContent)
-    previousScreen.textContent = previousValue + " " + operator
-    currentScreen.textContent = currentValue
+    if (currentValue !== "") {
+      getOperator(e.target.textContent)
+      previousScreen.textContent = previousValue + " " + operator
+      currentScreen.textContent = currentValue
+    }
   })
 )
 clear.addEventListener("click", () => {
