@@ -30,8 +30,7 @@ clear.addEventListener("click", () => {
   currentValue = ""
   previousValue = ""
   operator = ""
-  currentScreen.textContent = currentValue
-  previousScreen.textContent = previousValue
+  updateDisplay()
 })
 deleteBtn.addEventListener("click", () => {
   currentValue = ""
@@ -46,7 +45,7 @@ equal.addEventListener("click", () => {
     calculate()
     currentScreen.textContent = previousValue
     previousScreen.textContent = ""
-    currentValue = ""
+    currentValue = previousValue
   }
 })
 
@@ -56,6 +55,10 @@ let getOperator = (op) => {
   operator = op
   previousValue = currentValue
   currentValue = ""
+}
+let updateDisplay = () => {
+  currentScreen.textContent = currentValue
+  previousScreen.textContent = previousValue
 }
 let addDecimal = (decimal) => {
   if (!currentValue.includes(".")) {
